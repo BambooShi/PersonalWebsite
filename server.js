@@ -12,16 +12,67 @@ const mimeTypes = {
   ".json": "application/json; charset=utf-8",
 };
 
+class PortfolioCard {
+  constructor(title, description, priority) {
+    this.title = title;
+    this.description = description;
+    this.priority = priority;
+  }
+
+  toJSON() {
+    return {
+      title: this.title,
+      description: this.description,
+      priority: this.priority,
+    };
+  }
+}
+
 const profile = {
-  name: "Your Name",
-  title: "React + Node.js Developer",
+  name: "Snow Shi",
+  title: "Software Developer",
   intro:
-    "Use this starter template to introduce yourself, showcase featured work, and share the best way to get in touch.",
-  highlights: [
-    "Responsive hero section",
-    "Project showcase cards",
-    "Simple contact call-to-action",
+    "Hi I'm Snow! I'm an undergraduate 3rd year student currently enrolled as a computer science student specializing in software engineering at the University of Toronto. I excel at learning by doing and believes that one thing I will be doing throughout my life is to learn, since it feels quite fulfilling and accomplishing.",
+  interests: [
+    "drawing -- 3D sketching",
+    "physically active -- badminton",
+    "spiritually fulfilling & interactions -- online gaming",
   ],
+  games: [
+    "Valorant",
+    "Minecraft -- Wynncraft",
+    "Plateup",
+    "Overcooked",
+    "Danganronpa series",
+    "Stardew Valley",
+    "Minesweeper",
+    "PEAK",
+  ],
+  projectCards: [
+    new PortfolioCard(
+      "Project One",
+      "Highlight a project, client engagement, or portfolio piece here.",
+      3
+    ),
+    new PortfolioCard(
+      "Project Two",
+      "Use each card to describe the problem, your role, and the outcome.",
+      2
+    ),
+    new PortfolioCard(
+      "Project Three",
+      "Add links, screenshots, or testimonials as you expand the template.",
+      1
+    ),
+    new PortfolioCard(
+      "Project Four",
+      "Keep extra projects here; only the top three will be rendered.",
+      0
+    ),
+  ]
+    .sort((left, right) => right.priority - left.priority)
+    .slice(0, 3)
+    .map((card) => card.toJSON()),
 };
 
 function sendJson(response, statusCode, payload) {

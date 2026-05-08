@@ -40,7 +40,7 @@ function App() {
   return (
     <main className="page">
       <section className="hero">
-        <p className="eyebrow">Simple React + Node.js template</p>
+        <p className="eyebrow">University of Toronto</p>
         <h1>{profile.name}</h1>
         <h2>{profile.title}</h2>
         <p className="intro">{profile.intro}</p>
@@ -55,27 +55,21 @@ function App() {
       </section>
 
       <section className="card">
-        <h3>Why this starter works</h3>
+        <h3>Some personal interests of mine:</h3>
         <ul>
-          {profile.highlights.map((item) => (
+          {profile.interests.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
       </section>
 
       <section id="projects" className="grid">
-        <article className="card">
-          <h3>Project One</h3>
-          <p>Highlight a project, client engagement, or portfolio piece here.</p>
-        </article>
-        <article className="card">
-          <h3>Project Two</h3>
-          <p>Use each card to describe the problem, your role, and the outcome.</p>
-        </article>
-        <article className="card">
-          <h3>Project Three</h3>
-          <p>Add links, screenshots, or testimonials as you expand the template.</p>
-        </article>
+        {profile.projectCards.map((card) => (
+          <article className="card" key={card.title}>
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+          </article>
+        ))}
       </section>
 
       <section id="contact" className="card contact">
