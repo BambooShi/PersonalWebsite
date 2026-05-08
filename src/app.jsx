@@ -3,12 +3,31 @@ import { createRoot } from "react-dom/client";
 
 function App() {
   const [profile, setProfile] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetch("/api/profile")
-      .then((response) => response.json())
-      .then((data) => setProfile(data));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Unable to load profile data.");
+        }
+
+        return response.json();
+      })
+      .then((data) => setProfile(data))
+      .catch(() => setError("We couldn't load the profile content. Please try again."));
   }, []);
+
+  if (error) {
+    return (
+      <main className="page">
+        <section className="card">
+          <h3>Template unavailable</h3>
+          <p>{error}</p>
+        </section>
+      </main>
+    );
+  }
 
   if (!profile) {
     return (
