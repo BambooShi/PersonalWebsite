@@ -1,0 +1,13 @@
+{
+  "name": "personalwebsite",
+  "version": "1.0.0",
+  "description": "A personal website to display my skills and interests",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
