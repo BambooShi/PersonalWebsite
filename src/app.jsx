@@ -1,4 +1,5 @@
-const { useEffect, useState } = React;
+import React, { useEffect, useState } from "react";
+import { createRoot } from "react-dom/client";
 
 function App() {
   const [profile, setProfile] = useState(null);
@@ -10,7 +11,11 @@ function App() {
   }, []);
 
   if (!profile) {
-    return <main className="page"><p className="loading">Loading template...</p></main>;
+    return (
+      <main className="page">
+        <p className="loading">Loading template...</p>
+      </main>
+    );
   }
 
   return (
@@ -21,8 +26,12 @@ function App() {
         <h2>{profile.title}</h2>
         <p className="intro">{profile.intro}</p>
         <div className="actions">
-          <a href="#projects" className="button primary">View Projects</a>
-          <a href="#contact" className="button secondary">Contact Me</a>
+          <a href="#projects" className="button primary">
+            View Projects
+          </a>
+          <a href="#contact" className="button secondary">
+            Contact Me
+          </a>
         </div>
       </section>
 
@@ -53,10 +62,12 @@ function App() {
       <section id="contact" className="card contact">
         <h3>Ready to customize?</h3>
         <p>Replace this content with your bio, projects, and your preferred contact links.</p>
-        <a href="mailto:hello@example.com" className="button primary">Say Hello</a>
+        <a href="mailto:hello@example.com" className="button primary">
+          Say Hello
+        </a>
       </section>
     </main>
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(<App />);

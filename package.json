@@ -4,10 +4,18 @@
   "description": "A personal website to display my skills and interests",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
+    "build": "esbuild src/app.jsx --bundle --minify --outfile=public/app.js --format=iife --platform=browser",
+    "start": "npm run build && node server.js",
+    "dev": "npm run build && node --watch server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
 }
