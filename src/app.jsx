@@ -66,8 +66,10 @@ function App() {
       <section id="projects" className="grid">
         {profile.projectCards.map((card) => (
           <article className="card" key={card.title}>
-            <h3>{card.title}</h3>
+            <a href={card.link}><h3>{card.title}</h3></a> 
             <p>{card.description}</p>
+            <h5>TechStack:</h5>
+            <p>{card.tools}</p>
           </article>
         ))}
       </section>

@@ -13,16 +13,20 @@ const mimeTypes = {
 };
 
 class PortfolioCard {
-  constructor(title, description, priority) {
+  constructor(title, link, description, tools, priority) {
     this.title = title;
+    this.link = link;
     this.description = description;
+    this.tools = tools;
     this.priority = priority;
   }
 
   toJSON() {
     return {
       title: this.title,
+      link: this.link,
       description: this.description,
+      tools: this.tools,
       priority: this.priority,
     };
   }
@@ -50,23 +54,31 @@ const profile = {
   ],
   projectCards: [
     new PortfolioCard(
-      "Project One",
-      "Highlight a project, client engagement, or portfolio piece here.",
+      "GitHappens",
+      "https://github.com/BambooShi/my-githappens",
+      "This project is a full-stack Healthcare OCR and Voice-To-Text Management System built for CSCC01 Winter 2026. Its main goal is to manage patient data and clinical workflows. It enables patients, nurses, and doctors to upload medical documents, extract medical information via OCR and NLP, and store structured results in FHIR format. Voice-to-text input is also a core feature.\n\nIt follows the MVC architecture:\nFrontend: React 19 with Mantine UI (in frontend/)\nBackend: Django 5 (REST API, in backend/)\nDatabase: PostgreSQL (accessed mainly via Django ORM)\nAPI Integration: Communication is through HTTP endpoints, with Axios in the frontend.",
+      "React 19, Vite, Mantine UI, React Router, Axios (JavaScript/ES modules), Django 5.x, Django REST Framework, PostgreSQL, Simple JWT, python-decouple, django-cors-headers, Docker/Docker Compose for local development and CI pipelines, GitHub Actions for CI (frontend and backend tests, code coverage, Docker build & push), Jira for issue tracking and ticketing, Git Flow branching model",
       3
     ),
     new PortfolioCard(
-      "Project Two",
-      "Use each card to describe the problem, your role, and the outcome.",
+      "GitHappens",
+      "https://github.com/BambooShi/my-githappens",
+      "",
+      "",
       2
     ),
     new PortfolioCard(
-      "Project Three",
-      "Add links, screenshots, or testimonials as you expand the template.",
+      "GitHappens",
+      "https://github.com/BambooShi/my-githappens",
+      "",
+      "",
       1
     ),
     new PortfolioCard(
-      "Project Four",
-      "Keep extra projects here; only the top three will be rendered.",
+      "GitHappens",
+      "https://github.com/BambooShi/my-githappens",
+      "",
+      "",
       0
     ),
   ]
